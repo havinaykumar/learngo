@@ -94,9 +94,11 @@ func (t *SampleBcCode) write(stub *shim.ChaincodeStub, args []string) ([]byte, e
 
 // read - query function to read key/value pair
 func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
-	var key, jsonResp, anotherkey string
+	var key, jsonResp string
 	var err error
+	var a [5]string
 	
+	a[4] = "My Tryst with Blockchain"
 	
        
        
@@ -106,10 +108,11 @@ func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, er
 
 	key = args[0]
 	valAsbytes, err := stub.GetState(key)
+	fmt.Println("set:", valAsbytes)
 	if err != nil {
 		jsonResp = "{\"Error\":\"Failed to get state for " + key + "\"}"
 		return nil, errors.New(jsonResp)
 	}
 
-	return valAsbytes, nil
+	return byte[](a), nil
 }
