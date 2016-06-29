@@ -20,26 +20,19 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
-
-type LOC struct {
-   id string
-   buyer string
-   seller string
-   amount int
+// SampleBcCode example simple Chaincode implementation
+type SampleBcCode struct {
 }
 
 func main() {
-	
-	err := shim.Start(new(LOC))
+	err := shim.Start(new(SampleBcCode))
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
 }
 
-
-
 // Init resets all the things
-func (t *LOC) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *SampleBcCode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 1")
 	}
@@ -49,15 +42,11 @@ func (t *LOC) Init(stub *shim.ChaincodeStub, function string, args []string) ([]
 		return nil, err
 	}
 
-
-
 	return nil, nil
 }
 
-
-
 // Invoke isur entry point to invoke a chaincode function
-func (t *LOC) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *SampleBcCode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("invoke is running " + function)
 
 	// Handle different functions
@@ -71,10 +60,8 @@ func (t *LOC) Invoke(stub *shim.ChaincodeStub, function string, args []string) (
 	return nil, errors.New("Received unknown function invocation")
 }
 
-
-
 // Query is our entry point for queries
-func (t *LOC) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *SampleBcCode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("query is running " + function)
 
 	// Handle different functions
@@ -86,10 +73,8 @@ func (t *LOC) Query(stub *shim.ChaincodeStub, function string, args []string) ([
 	return nil, errors.New("Received unknown function query")
 }
 
-
-
 // write - invoke function to write key/value pair
-func (t *LOC) write(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
+func (t *SampleBcCode) write(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 	var key, value string
 	var err error
 	fmt.Println("running write()")
@@ -108,14 +93,13 @@ func (t *LOC) write(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 }
 
 // read - query function to read key/value pair
-func (t *SimpleChaincode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
-	var key, jsonResp string
-	var err error
-	
+func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 	var key, jsonResp string
 	var err error
 
+  locs := make(map[int]string)
 
+	locs["mykey"] = 100;
 	
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments. Expecting name of the key to query")
@@ -128,6 +112,5 @@ func (t *SimpleChaincode) read(stub *shim.ChaincodeStub, args []string) ([]byte,
 		return nil, errors.New(jsonResp)
 	}
 
-	return valAsbytes, nil
+	return byte[](locs), nil
 }
-
