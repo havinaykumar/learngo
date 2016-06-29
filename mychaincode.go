@@ -96,9 +96,9 @@ func (t *SampleBcCode) write(stub *shim.ChaincodeStub, args []string) ([]byte, e
 func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 	var key, jsonResp string
 	var err error
-	var a [5]string
+	// var a [5]string
 	
-	a[4] = "My Tryst with Blockchain"
+	// a[4] = "My Tryst with Blockchain"
 	
        
        
