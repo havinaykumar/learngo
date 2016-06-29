@@ -96,7 +96,8 @@ func (t *SampleBcCode) write(stub *shim.ChaincodeStub, args []string) ([]byte, e
 func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 	var key, jsonResp string
 	var err error
-
+	var m map[string]int
+	m = make(map[string]int)
        
        
 	if len(args) != 1 {
