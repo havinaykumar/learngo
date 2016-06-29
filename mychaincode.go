@@ -97,10 +97,7 @@ func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, er
 	var key, jsonResp string
 	var err error
 
-       locs := make(map[int]string)
-
-	locs["mykey"] = 100;
-	
+       
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments. Expecting name of the key to query")
 	}
