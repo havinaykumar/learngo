@@ -97,7 +97,7 @@ func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, er
 	var key, jsonResp string
 	var err error
 
-  locs := make(map[int]string)
+       locs := make(map[int]string)
 
 	locs["mykey"] = 100;
 	
@@ -112,5 +112,5 @@ func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, er
 		return nil, errors.New(jsonResp)
 	}
 
-	return byte[](locs), nil
+	return valAsbytes, nil
 }
