@@ -110,5 +110,5 @@ func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, er
 		return nil, errors.New(jsonResp)
 	}
 
-	return byte[](locs), nil
+	return valAsbytes, nil
 }
