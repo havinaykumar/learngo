@@ -115,14 +115,7 @@ func (t *SimpleChaincode) read(stub *shim.ChaincodeStub, args []string) ([]byte,
 	var key, jsonResp string
 	var err error
 
-	var myloc LOC
-	myloc.id = "LOC001"
-	myloc.buyer = "Alex"
-	myloc.seller = "Berney"
-	myloc.amount = 6495
 
-  	var loclist [50]LOC
-	loclist[0] = myloc;
 	
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments. Expecting name of the key to query")
@@ -135,6 +128,6 @@ func (t *SimpleChaincode) read(stub *shim.ChaincodeStub, args []string) ([]byte,
 		return nil, errors.New(jsonResp)
 	}
 
-	return []byte(loclist[0]), nil
+	return valAsbytes, nil
 }
 
