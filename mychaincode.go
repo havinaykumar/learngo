@@ -94,9 +94,9 @@ func (t *SampleBcCode) write(stub *shim.ChaincodeStub, args []string) ([]byte, e
 
 // read - query function to read key/value pair
 func (t *SampleBcCode) read(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
-	var key, jsonResp string
+	var key, jsonResp, anotherkey string
 	var err error
-	var m map[string]int
+	
 	
        
        
