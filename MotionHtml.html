@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    
+    <body>
+        <div class="main">
+            <div class="mainBody">
+                <div class="header">
+                    <div class="headerTitle">
+                        <img src="images/logo.png" alt="ABC Bank" />
+                    </div>
+                    <div class="headerFontSelection">
+                        <div class="fontSelection">
+                            <span class="font14">A</span>
+                            <span class="font18">A</span>
+                            <span class="font24">A</span>
+                            
+                            <select class="headerLanguageDrop">
+                                <option value="eng">English</option>
+                                <option value="french">French</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="headerNav">
+                        <ul>
+                            <li><a href="#">Find a Branch</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="confirmationBanner">
+                    <img src="images/primaryAccount-banner.png" alt="Confirmation" />
+                </div>
+                <!-- ******************************************** -->
+                <div class="confirmationStatus">
+                    Please select the type of your primary account
+                </div>
+                
+                <form id ="prodselect" action="oaostepswithoutdialog" method="post">
+                    <div class="errorStatus">
+                        <span style="color:red" th:text="${errorProduct}">text</span>
+                    </div>
+                    <input type="hidden" name="appid" th:value="-1" />
+                    <input type="hidden" name="error" th:value="${error}" />
+                    <input type="hidden" name="offers" th:value="${offers}" />
+                    <input type="hidden" name="errorLogin" th:value="${errorLogin}" />
+                    <input type="hidden" name="fname" th:value="${fname}" />
+                    <input type="hidden" name="lname" th:value="${lname}" />
+                    <input type="hidden" name="mname" th:value="${mname}" />
+                    <input type="hidden" name="zipcode" th:value="${zipcode}" />
+                    <input type="hidden" name="phone_number" th:value="${phone_number}" />
+                    <input type="hidden" name="ssn" th:value="${ssn}" />
+                    <input type="hidden" name="email" th:value="${email}" />
+                    <input type="hidden" name="facebook" th:value="${facebook}" />
+                    <input type="hidden" name="SSTI" th:value="${SSTI}" />
+                    
+                    <!-- ******************************************** -->
+                    
+                    <div class="mainBodyOuter">
+                        <div class="mainBodyBackNav mainBodyBackNavPrimary">
+                            <img src="images/back.png" />
+                        </div>
+                        <div class="mainBodyInner">
+                            <div class="primaryAccountTab">
+                                <ul class="primaryAccountNav">
+                                    <li><a id="suggestedLink" class="active" href="#">All Eligible</a></li>
+                                    <li><a id="popularLink" href="#">Popular</a></li>
+                                    <li><a id="newProductsLink" href="#">New Products</a></li>
+                                    <li><a id="allEligibleLink" href="#">Suggested</a></li>
+                                </ul>
+                            </div>
+                            <div class="primaryAccountTabBodyOuter">
+                                <!-- *********************************************** -->
+                                <div id="tabSuggested" class="primaryAccountTabBody">
+                                    <table class="tabInfoTable" cellspacing="5" cellpadding="5">
+                                        <col width="20%" />
+                                        <col width="80%" />
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio1" name="suggestedRadio" value="1" />
+                                                <label for="radio1">ABC Free Checking   <a href="#">Know more..</a></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio2" name="suggestedRadio" value="2" />
+                                                <label for="radio2">Standard Checking   <a href="#">Know more..</a></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio3" name="suggestedRadio" value="3" />
+                                                <label for="radio3">ABC Performance Checking   <a href="#">Know more..</a></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio4" name="suggestedRadio" value="4" />
+                                                <label for="radio4">Super ABC Checking   <a href="#">Know more..</a></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- *********************************************** -->
+                                <div id="tabPopular" class="primaryAccountTabBody">
+                                    <table class="tabInfoTable" cellspacing="5" cellpadding="5">
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio1" name="popularRadio" value="1" />
+                                                <label for="radio1">Popular 1</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- *********************************************** -->
+                                <div id="tabNewProducts" class="primaryAccountTabBody">
+                                    <table class="tabInfoTable" cellspacing="5" cellpadding="5">
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="product1" name="newProductsRadio" value="1"/>
+                                                <label for="product1">Product 1</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="product2" name="newProductsRadio" value="1"/>
+                                                <label for="product2">Product 2</label>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>			  
+                                </div>
+                                <!-- *********************************************** -->
+                                <div id="tabAllEligible" class="primaryAccountTabBody">
+                                    <table class="tabInfoTable" cellspacing="0" cellpadding="9">
+                                        <col width="15%" />
+                                        <col width="15%" />
+                                        <col width="35%" />
+                                        <col width="5%" />
+                                        <col width="5%" />
+                                        <col width="20%" />
+                                        <tr>
+                                            <th>Product ID</th>
+                                            <th>Account Type</th>
+                                            <th>Account Name</th>
+                                            <th>Rate of Interest</th>
+                                            <th>Term</th>
+                                            <th>Contact Number</th>
+                                        </tr>
+                                        <tr th:each="product : ${products}">
+                                            <!-- <td  valign="middle">
+                                             <input type="radio" name="prodid" th:value="${product.id}"/>
+                                             
+                                             </td> -->	
+                                            
+                                            <td valign="middle">
+                                                <input type="radio" th:id="${product.id}" name="prodid" th:value="${product.id}" /><label th:for="${product.id}"></label>
+                                            </td>
+                                            
+                                            <!-- <td th:text="${product.id}">Owner</td> -->
+                                            <td th:text="${product.account_Type}">0</td>
+                                            <td th:text="${product.account_Name}">Owner</td>
+                                            <td th:text="${product.rate_Of_Interest}">0</td>
+                                            <td th:text="${product.term}">Owner</td>
+                                            <td th:text="${product.contact_Number}">0</td>										
+                                        </tr>		
+                                    </table>			  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mainBodyNextNav mainBodyNextNavPersonalPrimary"  >
+                            <img src="images/next.png" onclick="$(this).closest('form').submit()" />
+                        </div>
+                    </div>
+                </form>
+                <!-- ******************************************** -->
+                
+                
+                <div class="footer-utility-layer">
+                    <div class="callIcon">
+                        <img src="images/clickToCall.png" />
+                    </div>
+                    <div class="helpIcon">
+                        <img src="images/helpChat.png" />					</div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+        <!-- <div class="footerApplicationID">Your application Id is - 12345 </div> -->
+        
+        <div class="footer-copyright-layer">	
+            <div class="copyright-innerContainer">
+                ABC Bank&copy; 2016  |  <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        
+    </body>
+    <link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css" />
+    <script src="https://api.motion.ai/sdk/webchat.js"></script>
+    <script type="text/javascript">
+        
+        <link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+        <script src="https://api.motion.ai/sdk/webchat.js"></script>
+    <script>
+        motionAI_Init('10975?color=62a8ea&sendBtn=SEND&inputBox=Type+something...&token=df03a242df7ae079a71fd549477cd116',true,400,470); /* botID with access token, display bot icon?, modal width, modal height */
+        /* you may also invoke motionAI_Open(); to manually open the modal */
+        </script>
+</html>
